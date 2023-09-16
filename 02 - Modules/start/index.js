@@ -1,6 +1,6 @@
-const fs = require('fs');
+const fs = require("fs");
 
-console.log('Hello Node.js');
+console.log("Hello Node.js");
 
 // Logging global objects
 console.log(global);
@@ -14,20 +14,21 @@ console.log(module.exports === exports);
 // const content = fs.readFileSync('./data.js', 'utf8');
 // console.log(content);
 
-// fs.readFile('./data.js', 'utf8', (err, content) => { 
+// fs.readFile('./data.js', 'utf8', (err, content) => {
 //   console.log(content);
 // });
-  
-const {realdata} = require('./data.js'); //CommonJS
+
+const os = require("os");
+const { realdata } = require("./data.js"); //CommonJS
 console.log(realdata);
 
-const http = require('http');
+const http = require("http");
 http
- .createServer(function (req, res) {
- res.writeHead(200);
- res.write('Hello World');
- res.end();
- })
- .listen(3000);
-console.log('Listening on port 3000');
-
+  .createServer(function (req, res) {
+    const jsonData = JSON.stringify(realdata); //แปลงอ็อบเจ็กต์ JavaScript เป็นรูปแบบ JSON
+    res.writeHead(200);
+    res.write(jsonData);
+    res.end();
+  })
+  .listen(3000);
+console.log("Listening on port 3000");
