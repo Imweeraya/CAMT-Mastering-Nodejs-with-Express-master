@@ -55,7 +55,7 @@ const data = [
   }
 ];
 
-exports.realdata = data;
+exports.data = data;
 
 // care module.export not care only export !
 // export.data = ... เปลี่ยนทั้งใน module.export และ export

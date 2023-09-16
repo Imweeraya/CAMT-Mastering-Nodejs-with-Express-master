@@ -19,12 +19,14 @@ console.log(module.exports === exports);
 // });
 
 const os = require("os");
-const { realdata } = require("./data.js"); //CommonJS
-console.log(realdata);
+const realdata = require("./data.js"); //CommonJS //ทุกอย่างที่ export
+//const {data} = require("./data.js"); //เฉพาะ variable ที่ exportมา ที่ชื่อ data 
+//การนำเข้าโมดูล data.js แบบการแยกค่า (destructuring) โดยใช้ { data }:
+console.log(realdata); 
 
 const http = require("http");
-http
-  .createServer(function (req, res) {
+
+http.createServer(function (req, res) {
     const jsonData = JSON.stringify(realdata); //แปลงอ็อบเจ็กต์ JavaScript เป็นรูปแบบ JSON
     res.writeHead(200);
     res.write(jsonData);
