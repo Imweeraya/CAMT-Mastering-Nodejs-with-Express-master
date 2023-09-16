@@ -55,4 +55,8 @@ const data = [
   }
 ];
 
-module.exports = data;
+exports.realdata = data;
+
+// care module.export not care only export !
+// export.data = ... เปลี่ยนทั้งใน module.export และ export
+// export = {x:10} ไม่ได้ชี้ไปที่เดียวกันอีกต่อไป module.export ไม่เปลี่ยนด้วย
