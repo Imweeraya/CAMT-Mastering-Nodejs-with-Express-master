@@ -13,6 +13,7 @@ console.log(__filename);
 console.log(module);
 console.log(exports);
 console.log(module.exports === exports);
+console.log("Hi");
 
 // Blocking vs Non-blocking IO
 const content = fs.readFileSync('./data.js', 'utf8');
