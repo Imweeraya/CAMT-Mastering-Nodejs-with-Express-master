@@ -2,13 +2,21 @@ const express = require('express');
 const morgan = require('morgan');
 
 const productRoutes = require('./routes/products');
+const {connect , sync} = require('./config/database');
+
+async function initializeDatabase() {
+  await connect();
+  await sync();
+}
+
+initializeDatabase();
 
 const app = express();
 
 // Setting up middleware
-app.use(morgan('tiny'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(morgan('tiny'));
 
 // Setting up routes
 app.use('/products', productRoutes);
